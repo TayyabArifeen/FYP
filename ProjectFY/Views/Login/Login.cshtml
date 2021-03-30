@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ProjectFY.Models.UserAccount;
+@{
+
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <h1> Welcome to Jump Into E-com</h1>
+    <h4> Login</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Login">
+                <h7 style="color:red"> @ViewData["text"]</h7>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" style="width:220px" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" type="password" style="width:220px" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

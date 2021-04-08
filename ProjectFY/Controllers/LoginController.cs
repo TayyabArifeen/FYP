@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -10,15 +12,20 @@ using ProjectFY.Models;
 
 namespace ProjectFY.Controllers
 {
+    [Authorize]
     public class LoginController : Controller
     {
         private readonly AppDbContext _context;
-        
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public LoginController(AppDbContext context)
+        public LoginController(AppDbContext context, UserManager<IdentityUser> userManager,
+                              SignInManager<IdentityUser> signInManager)
         {
             _context = context;
-           
+            _userManager = userManager;
+            _signInManager = signInManager;
+
         }
 
         // GET: Login
@@ -46,25 +53,62 @@ namespace ProjectFY.Controllers
         }
 
         // GET: Login/Create
+        [AllowAnonymous]
         public IActionResult Create()
         {
             return View();
         }
+        [AcceptVerbs("Get","Post")]
+        [AllowAnonymous]
+        public async Task<IActionResult> IsEmailInUse(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if(user==null)
+            {
+                return Json(true);
 
-        // POST: Login/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+            }
+            else
+            {
+                return Json($"Email {email} is already in use");
+            }
+
+        }
+
+            // POST: Login/Create
+            // To protect from overposting attacks, enable the specific properties you want to bind to.
+            // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Name,Email,Password")] UserAccount userAccount)
+        [AllowAnonymous]
+        public async Task<IActionResult> Create(UserAccount model)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(userAccount);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var user = new IdentityUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+
+                    return RedirectToAction("index", "Home");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+
+                ModelState.AddModelError(string.Empty, "Invalid Registration Attempt");
+
             }
-            return View(userAccount);
+            return View(model);
         }
 
         // GET: Login/Edit/5
@@ -88,6 +132,7 @@ namespace ProjectFY.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("UserId,Name,Email,Password")] UserAccount userAccount)
         {
             if (id != userAccount.UserId)
@@ -139,6 +184,7 @@ namespace ProjectFY.Controllers
         // POST: Login/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var userAccount = await _context.UserAccounts.FindAsync(id);
@@ -151,38 +197,52 @@ namespace ProjectFY.Controllers
         {
             return _context.UserAccounts.Any(e => e.UserId == id);
         }
-
+        [AllowAnonymous]
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(UserAccount model)
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginView user,string returnUrl)
         {
-            var LoginDB = this._context.UserAccounts;
-            if (LoginDB == null)
+            if (ModelState.IsValid)
             {
-                return this.RedirectToAction("Login", new { text = "Invalid! Password or email" });
+                var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, user.RememberMe, false);
 
-            }
-
-            List<UserAccount> List = LoginDB.ToList();
-            foreach (UserAccount login in List)
-            {
-                if (login.Email == model.Email && login.Password == model.Password)
+                if (result.Succeeded)
                 {
-                    Program._user = login;
-                    break;
+                    if(!string.IsNullOrEmpty(returnUrl)&& Url.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Main", "Login");
+                    }
+                    
                 }
-            }
-            if (Program._user.Password == null && Program._user.Email == null)
-                return this.RedirectToAction("Login", new { text = "Invalid! Password or email" });
 
-            return this.RedirectToAction(nameof(Index));
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
+
+            }
+            return View(user);
 
         }
-           
-      
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("index", "home");
+        }
+        [HttpGet]
+        [Authorize]
+        public IActionResult Main()
+        {
+            return View();
+        }
+
     }
 }

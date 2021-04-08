@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,6 +18,7 @@ namespace ProjectFY.Models
         [Column(nameof(Name), TypeName = "nvarchar(100)")]
         public string Name { get; set; }
         [Required]
+        [Remote(action:"IsEmailInUse",controller:"Login")]
         [Column(nameof(Email), TypeName = "nvarchar(100)")]
         public string Email { get; set; }
         [Required]

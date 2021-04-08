@@ -18,6 +18,7 @@
         .container {
             position: relative;
             width: inherit;
+            margin-top:90px;
             
         }
 
@@ -57,7 +58,9 @@
 <body>
     <div class="container">
         <img src="~/images/pred2.jpeg" alt="Prediction" style="width:100%" />
-        <button class="btn" href="/Home/Index">Get Started</button>
+        <form action="/Login/Create" method="get">
+            <button class="btn" >Get Started</button>
+        </form>
     </div>
     <div style="text-align:center">
         <h1>E-commerce</h1>

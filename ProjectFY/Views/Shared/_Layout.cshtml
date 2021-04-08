@@ -1,4 +1,5 @@
-﻿
+﻿@inject SignInManager<IdentityUser> signInManager;
+
 <html>
 <head>
     <title>@ViewBag.Title</title>
@@ -9,6 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -21,35 +27,49 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 
-
+    <style>
+        .footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #777;
+            padding: 10px;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body style="overflow:hidden;overflow-y:hidden">
    
 
     <div class="header">
-        <a href="#" class="logo">
+        <a href="/Home/Index" class="logo">
             <i class="fa fa-home">
                 JumpIntoE-Com
             </i>
         </a>
         <a href="/Home/Index" style="margin-left:180px;"><i class="fa fa-home" aria-hidden="true">&nbsp Home</i></a>
         <a href="/About/Index" style="padding-left:20px;"><i class="fa fa-user" aria-hidden="true">&nbsp About</i></a>
-        <a href="/Home/Privacy" style="padding-left:20px;"><i class="fa fa-product-hunt" aria-hidden="true">&nbsp Privacy Policy</i></a>
-        <div class="header-right">
+        <a href="/Home/Privacy" style="padding-left:20px;"><i class="fa fa-product-hunt" aria-hidden="true">&nbsp Privacy Policy</i></a>     
+         <div class="header-right">
             <a href="/Login/Login" class="logo" style="padding-right:20px;"> <i class="fa fa-sign"> Login</i></a>
             <a href="/Login/Create" class="logo"> <i class="fa fa-sign"> Register</i></a>
         </div>
+        
+        
     </div>
 
 
 
     @RenderBody()
-
-    <footer>
+<div class="footer">
+    
         <p>&copy; 2021 - JumpIntoE-Com</p>
-    </footer>
-
+   
+</div>
 </body>
 
 </html>

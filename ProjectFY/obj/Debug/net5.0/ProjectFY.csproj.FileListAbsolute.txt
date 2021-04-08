@@ -1,5 +1,6 @@
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\appsettings.json
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\libman.json
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\ProjectFY.exe
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\ProjectFY.deps.json
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\ProjectFY.runtimeconfig.json
@@ -10,6 +11,9 @@ C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\ProjectFY.pdb
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\ProjectFY.Views.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\ProjectFY.Views.pdb
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Humanizer.dll
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -24,6 +28,8 @@ C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.Entit
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.Identity.Client.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
@@ -115,7 +121,6 @@ C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\runtimes\win-ar
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.csprojAssemblyReference.cache
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.AssemblyInfoInputs.cache
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.AssemblyInfo.cs
@@ -132,7 +137,15 @@ C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.Razor
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\About\Index.cshtml.g.cs
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Create.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Delete.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Details.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Edit.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Main.cshtml.g.cs
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Shared\_AfterLogin.cshtml.g.cs
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Shared\_LoginLayout.cshtml.g.cs
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Shared\_LRLayout.cshtml.g.cs
@@ -147,9 +160,4 @@ C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ref\ProjectFY.dll
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.pdb
 C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.genruntimeconfig.cache
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Create.cshtml.g.cs
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Delete.cshtml.g.cs
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Details.cshtml.g.cs
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Edit.cshtml.g.cs
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Index.cshtml.g.cs
-C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\Razor\Views\Login\Login.cshtml.g.cs
+C:\Users\Arife\source\repos\ProjectFY\ProjectFY\obj\Debug\net5.0\ProjectFY.csprojAssemblyReference.cache

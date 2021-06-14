@@ -40,8 +40,7 @@ namespace ProjectFY
            
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+            services.AddDbContext<JIECContext>(item => item.UseSqlServer(this.Configuration.GetConnectionString(nameof(JIECContext))));
             services.AddControllersWithViews();
             //services.AddMvc(options =>
             //{
@@ -76,10 +75,10 @@ namespace ProjectFY
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=HomePage}/{id?}");
                 
             });
         }
-       
+        
     }
 }

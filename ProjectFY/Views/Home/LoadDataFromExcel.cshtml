@@ -1,0 +1,12 @@
+﻿
+@{ ViewData["Title"] = "LoadDataFromExcel";
+                Layout = "~/Views/Shared/Admin.cshtml"; 
+    }
+<div style="margin-top: 200px">
+    <center> Load Data From Excel</center>
+    <center><input onclick="LoadData()" type="button" class="btn btn-primary" value="Load Data" /></center>
+</div>
+<script>function LoadData()
+    {
+        window.location.href = "/Home/Index";
+    }</script>

@@ -1,0 +1,171 @@
+﻿@model IEnumerable<ProjectFY.Models.Product>
+@{
+    ViewData["Title"] = "Prediction";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #04AA6D;
+                color: white;
+            }
+    </style>
+</head>
+<h1>Products Analysed</h1>
+
+@{
+    int i = 1;
+}
+<input id="btn" onclick="download()" type="button" style="float:right;" class="btn btn-danger" value="Download Anaylsis" />
+<table id="customers">
+    <tr>
+        <th>Risk: </th>
+
+        <th>Number of Competitors: </th>
+    </tr>
+    <tr>
+        <td><strong>@ViewBag.Analysis.Risk %</strong></td>
+        <td><strong>@ViewBag.Analysis.numberOfCompetitors</strong></td>
+    </tr>
+</table>
+<table id="customers">
+    
+    <tr>
+        <th>
+            S#
+        </th>
+        <th>
+            SKU Number
+        </th>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Sub Category
+        </th>
+        <th>
+            Price
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SKUNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSubCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+        </tr>
+        i += 1;
+    }
+</table>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script>
+     function getMonth(str)
+    {
+        if (str.Count() > 0 || str != null) {
+            if (str.ToLower() == "january")
+                return 1;
+            else if (str.toLowerCase == "february")
+                return 2;
+            else if (str.toLowerCase() == "march")
+                return 3;
+            else if (str.toLowerCase() == "april")
+                return 4;
+            else if (str.toLowerCase() == "may")
+                return 5;
+            else if (str.toLowerCase() == "june")
+                return 6;
+            else if (str.toLowerCase() == "july")
+                return 7;
+            else if (str.toLowerCase() == "august")
+                return 8;
+            else if (str.toLowerCase() == "september")
+                return 9;
+            else if (str.toLowerCase() == "october")
+                return 10;
+            else if (str.toLowerCase() == "november")
+                return 11;
+            else
+                return 12;
+        }
+        else
+            return 0;
+    }
+    function closeHeaderAndSideNAv() {
+
+        document.getElementById("Header").style.display = "none";        
+        document.getElementById("btn").style.display = "none";        
+        document.getElementById("Body").style.height = "100%";
+        document.getElementById("Body").style.width = "100%";
+
+
+    }
+    window.onload = function () {
+        @{ 
+            if(this.ViewBag.pdf=="1")
+            {
+                @:closeHeaderAndSideNAv();
+            }
+
+        }
+        var dataPoints = [];
+        @foreach(var item in ViewBag.Data)
+        {            
+            @:dataPoints.push({ x: @item.Month, y: @item.NumberOfSales});
+        }                
+        var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+        text: "ASP.NET MVC Column Chart from Database"
+        },
+        data: [
+        {
+            type: "column",
+            dataPoints: dataPoints,
+        }
+        ]});
+        chart.render();    
+    };
+    function download() {
+        window.location.href = "/User/downloadAnalysis";
+    }
+</script>

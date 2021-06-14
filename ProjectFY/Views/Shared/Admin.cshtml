@@ -1,0 +1,145 @@
+﻿
+<html>
+<head>
+    <title>JIEC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+
+    </environment>
+    <script src="~/lib/canvasjs.min.js"></script>
+    <script src="~/lib/jquery.canvasjs.min.js"></script>
+
+    <script src="~/lib/canvasjs.react.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+
+
+        .sidenav {
+            height: 100%;
+            width: 243px;
+            position: fixed;
+            z-index: 1;
+            left: 0%;
+            padding-bottom: 100px;
+            background-color: darkcyan;
+            padding-top: 100px;
+            border-left-color: beige;
+        }
+
+            .sidenav a {
+                padding: 20px 20px 20px 32px;
+                text-decoration: solid;
+                font-size: 18px;
+                color: white;
+                display: block;
+            }
+
+                .sidenav a:hover {
+                    background-color: #ddd;
+                    color: #4CAF50;
+                }
+
+        .main {
+            /* Same as the width of the sidenav */
+            background-color: whitesmoke;
+            margin-left: 248px;
+            width: 84%;
+            height: 94%;
+        }
+
+        .header {
+            overflow: hidden;
+            background-color: #4CAF50;
+            padding: 10px 10px;
+            height: 50px;
+            width: 100%;
+            padding-right: 12px;
+            font-size: 15px;
+            border-bottom: groove;
+            border-bottom-color: beige;
+        }
+
+            .header a {
+                float: left;
+                color: white;
+                text-align: center;
+                padding: 12px 7px;
+                text-decoration: none;
+                font-size: 15px;
+                line-height: 25px;
+                border-radius: 4px;
+            }
+
+                .header a.logo {
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+
+                .header a:hover {
+                    background-color: #ddd;
+                    color: #4CAF50;
+                }
+
+                .header a.active {
+                    background-color: dodgerblue;
+                    color: white;
+                }
+
+        .header-right {
+            float: right;
+        }
+    </style>
+
+</head>
+
+<body id="Body" style="overflow:auto;overflow-y:auto;height:100%;width:100%">
+
+    <div class="header" id="Header"style="position:fixed">
+        <a href="#" class="logo">
+            <i class="fa fa-home">
+                Dashboard
+            </i>
+        </a>
+        <div class="header-right">
+            <a href="/Login/Login" class="logo"> <i class="fa fa-sign-out"> Sign out</i></a>
+        </div>
+    </div>
+    <div class="sidenav" id="SideNav" style="margin-top:50px">
+        <a href="/Users/Index"><i class="fa fa-user" aria-hidden="true">&nbsp Users</i></a>
+        <a href="/Products/productList"><i class="fa fa-list-alt" aria-hidden="true">&nbsp Products</i></a>
+        <a href="/ProductDetails/getAllProductDetails"><i class="fa fa-product-hunt" aria-hidden="true">&nbsp Product Details</i></a>
+        <a href="/Home/Scrapper"><i class="fa fa-registered" aria-hidden="true">&nbsp Scrapper</i></a>
+        <a href="/Home/LoadDataFromExcel"><i class="fa fa-database" aria-hidden="true">&nbsp Store Data</i></a>
+
+    </div>
+
+    <div class="main">
+        @RenderBody()
+        </div>
+
+        <footer>
+            <p>&copy; 2021 JIEC</p>
+        </footer>
+
+</body>
+
+</html>
+
+
+

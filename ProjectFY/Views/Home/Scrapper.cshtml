@@ -1,0 +1,13 @@
+﻿@{ ViewData["Title"] = "Scrapper";
+    Layout = "~/Views/Shared/Admin.cshtml"; }
+
+<div style="margin-top:200px">
+    <center> Scrapper</center>
+    <center><input onclick="Scrapper()" type="button" class="btn btn-primary" value="Scrap Data" /></center>
+</div>
+<script>
+    function Scrapper() {
+        window.location.href = "/Home/LoadFromWeb";
+
+    }</script>
+

@@ -1,0 +1,113 @@
+﻿@model IEnumerable<ProjectFY.Models.Product>
+@{
+    ViewData["Title"] = "Prediction";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #04AA6D;
+                color: white;
+            }
+    </style>
+</head>
+<h1>Products</h1>
+
+@{ 
+    int i=1;
+}
+<table id="customers">
+    <tr>
+    <th>Highest Prediction Value: </th>
+    <th>Name Of Product:</th>
+    <th>SKU Number Of Product: </th>
+    </tr>
+    <tr>
+        <td>
+           <b> @ViewBag.HightestPrediction</b>
+        </td>
+        <td>
+           <b> @ViewBag.NameOfProduct</b>
+        </td>
+        <td>
+            <b>@ViewBag.SKUOfProduct</b>
+        </td>
+    </tr>
+</table>
+<table id="customers">
+    
+    <tr>
+        <th>
+            S#
+        </th>
+        <th>
+            SKU Number
+        </th>
+        <th>
+            Product Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Sub Category
+        </th>
+        <th>
+            Price
+        </th>
+        <th> <b>Prediction Value : </b></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SKUNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSubCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td><b>@item.PredictionValue</b></td>
+        </tr>
+        i += 1;
+    }
+</table>
+<center><input onclick="getAnalysis()"  type="button" value="Analysis" class="btn btn-primary" /></center>
+<script>
+    function getAnalysis() {
+        window.location.href = "/User/getAnalysis";
+    }
+</script>

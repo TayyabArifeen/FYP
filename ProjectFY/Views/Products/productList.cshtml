@@ -1,0 +1,82 @@
+﻿@model IEnumerable<ProjectFY.Models.Product>
+
+@{
+    ViewData["Title"] = "productList";
+    Layout = "~/Views/Shared/Admin.cshtml";
+}
+<head>
+    <style>
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #customers tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #customers tr:hover {
+                background-color: #ddd;
+            }
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #04AA6D;
+                color: white;
+            }
+    </style>
+</head>
+<h1>Products</h1>
+
+
+<table id="customers">
+    <thead>
+        <tr>
+            <th>
+                SKU Number
+            </th>
+            <th>
+                Product Name
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Sub Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SKUNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductSubCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>            
+        </tr>
+}
+    </tbody>
+</table>

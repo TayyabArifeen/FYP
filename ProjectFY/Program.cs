@@ -12,18 +12,7 @@ namespace ProjectFY
 {
     public class Program
     {
-        private static UserAccount user = new UserAccount();
-        public static UserAccount _user
-        {
-            get
-            {
-                return user;
-            }
-            set
-            {
-                user = value;
-            }
-        }
+       
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

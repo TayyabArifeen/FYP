@@ -1,0 +1,56 @@
+﻿@model ProjectFY.Controllers.Prediction
+@{
+    ViewData["Title"] = "Prediction";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" id="form" style="margin-left:40%;">
+            <h1>Prediction</h1>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Select Category</label>
+                <select id="Category" asp-for="Categories" class="form-control" required>
+                    <option value="" disabled selected>Please Select Category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Mobiles">Mobiles</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Grocery">Grocery</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Automotive">Automotive</option>
+                    <option value="Health">Health</option>
+                    <option value="Home Appliances">Home Appliances</option>
+                    <option value="Watches">Watches</option>
+                </select>
+                <span asp-validation-for="Categories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Investment</label>
+                <input id="Investment" type="number" asp-for="Investment" step="10000" min="10000" class="form-control" required />
+                <span asp-validation-for="Investment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Number of products</label>
+                <input id="products" type="number" asp-for="numberOfProducts" step="1" min="1" class="form-control" required />
+                <span asp-validation-for="numberOfProducts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input id="Predict" onclick="loadPartialView()" type="button" value="Predict" class="btn btn-primary" />
+            </div>
+        </form>
+        <div id="PredictionResult">
+
+        </div>
+    </div>    
+</div>
+<script>
+    function loadPartialView() {        
+        var Category = document.getElementById("Category").value;
+        var Investment = document.getElementById("Investment").value;        
+        var Products = document.getElementById("products").value;        
+        window.location.href = "/User/PredictionResult?category=" + Category + "&investment=" + Investment + "&Products="+Products;
+    }
+
+</script>
+

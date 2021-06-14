@@ -1,0 +1,100 @@
+﻿
+
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+
+    <style>
+        body {
+            position: absolute;
+        }
+
+        html {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: inherit;
+            margin-top: 90px;
+        }
+
+            .container img {
+                width: 100%;
+                height: 50%;
+            }
+
+            .container .btn {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                background-color: #555;
+                color: white;
+                font-size: 16px;
+                padding: 12px 24px;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: center;
+            }
+
+                .container .btn:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+        .w3-padding-32 {
+            padding-top: 32px !important;
+            padding-bottom: 32px !important;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:98%;max-height:100%">
+        <div class="container">
+            <img src="~/images/pred2.jpeg" alt="Prediction" style="width:100%" />
+            <form action="/Login/Login" method="get">
+                <button class="btn">Get Started</button>
+            </form>
+        </div>
+        <div style="text-align:center">
+            <h1>E-commerce</h1>
+            <div class="w3-padding-32">
+            <h5 >
+                The development of e-commerce in the whole world has made it possible for economic development. E-commerce globally has grown enormously in the past twenty years with growth rates of sales standing at 13 percent, which equates to sales that were worth an estimated $2.9 trillion. These figures are expected to reach $4.5 trillion by 2021. Online shopping reached growth of 12 percent in 2017 with a worth of $1.3 billion. There have been several studies which confirm that 18 percent of all online retail sales in Pakistan took place in 2018. Forecasts show that by 2040 it is expected that 95 percent of all retail sales and purchases will be made and facilitated online.
+            </h5>
+            <h5>
+                E-commerce has grown phenomenally worldwide over the past few years, but most of these sales were made by domestic buyers purchasing from domestic sellers. However, purchasing from foreign sellers has recently gained traction as the share of buyers has climbed from 15-21 percent. Approximately, 25 percent of shopping worldwide is now taking place online, with China recording a colossal 440 million online consumers.
+            </h5>
+        </div>
+        <div style="text-align:center">
+            <h1>Future of E-commerce in Pakistan</h1>
+            <div class="w3-padding-32">
+                <h5>
+                    E-commerce will be the most valuable market in Pakistan. Investing in right direction is a challenging fact. So JIEC assisst you to jump in this market and this is the right time.
+                </h5>
+                <h5>
+                    E-commerce is growing steadily in Pakistan. The industry in 2018 was estimated to be at Rs99.3 billion which was a good increase from 2017 when the figures were Rs51.8 billion which is a healthy year-on-year growth of 92 percent. With a population of 208 million and several financial inclusion solutions, Pakistan is one of the largest unrealized markets of e-commerce in the world.
+                </h5>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="footer">
+
+        <p>&copy; 2021 - JumpIntoE-Com</p>
+
+    </div>
+</body>
+
+</html>
+

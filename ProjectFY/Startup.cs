@@ -39,7 +39,7 @@ namespace ProjectFY
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
            
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            IronXL.License.LicenseKey = "IRONXL.ARIFEENTAYYAB.23151-34B505BBCF-VVYHBFNIWVMDQ6RW-Q7ADPXQCWJIU-OXG4BH327S5O-QT77FAP46WYF-RHGZ5S3HMLNW-QBRPTZ-T3E2JLPAZQ2AUA-DEPLOYMENT.TRIAL-VIMHMA.TRIAL.EXPIRES.14.JUL.2021";
             services.AddDbContext<JIECContext>(item => item.UseSqlServer(this.Configuration.GetConnectionString(nameof(JIECContext))));
             services.AddControllersWithViews();
             //services.AddMvc(options =>

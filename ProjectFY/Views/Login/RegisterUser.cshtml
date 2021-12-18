@@ -5,11 +5,13 @@
     Layout = "~/Views/Shared/Login.cshtml";
 }
 
-<hr />
+
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="RegisterUser"style="margin-left:20%">
-            <h1>Register User</h1>
+        <form asp-action="RegisterUser" style="margin-left:20%">
+            <h1>Register</h1>
+            <p>Please fill in this form to create an account.</p>
+            <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserName" class="control-label"></label>
@@ -26,11 +28,13 @@
                 <input type="password" asp-for="UserPassword" class="form-control" />
                 <span asp-validation-for="UserPassword" class="text-danger"></span>
             </div>
+            <hr>
+            <p>By creating an account you agree to our <a href="https://www.freeprivacypolicy.com/live/e3527caa-ce4d-4824-9cab-ba703545ecd3">Terms & Privacy</a>.</p>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
             <div>
-                <a asp-action="Login">Back </a>
+                <p>Already have an account? <a asp-action="Login">Login </a></p>
             </div>
         </form>
     </div>

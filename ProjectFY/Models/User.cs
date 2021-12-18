@@ -11,16 +11,18 @@ namespace ProjectFY.Models
     public class User
     {        
             [Key]
-            [Required]
+            [Required]       
             [Column(nameof(UserID), TypeName = "int")]
             public int UserID { get; set; }                                    
-            [Required]
+            [Required(ErrorMessage = "Username is required")]
             [Column(nameof(UserName), TypeName = "nvarchar(1000)")]
             public string UserName { get; set; }
-            [Required]
+            [Required(ErrorMessage = "Email is required")]
+            [RegularExpression("^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$", ErrorMessage = "Must be a valid email")]
             [Column(nameof(UserEmail), TypeName = "nvarchar(1000)")]
             public string UserEmail { get; set; }
-            [Required]
+            [Required(ErrorMessage = "Password is required")]
+            [StringLength(255, ErrorMessage = "Must be between 5 and 255 characters", MinimumLength = 5)]
             [Column(nameof(UserPassword), TypeName = "nvarchar(1000)")]
             public string UserPassword { get; set; }
             [Required]

@@ -2,9 +2,14 @@
 @{ ViewData["Title"] = "LoadDataFromExcel";
                 Layout = "~/Views/Shared/Admin.cshtml"; 
     }
-<div style="margin-top: 200px">
-    <center> Load Data From Excel</center>
-    <center><input onclick="LoadData()" type="button" class="btn btn-primary" value="Load Data" /></center>
+<div style="margin-top: 60px">
+    <h1>Load Data</h1>
+    <p>This Field is to load data from excel or csv files.</p>
+    <p>We copied our data into excel file while scrapping and then we will store the data into our database.</p>
+    <p>While copying make sure you use IronXl key into your startup file for using it in without debugging mode.</p>
+    <p>IronXl is a library for loading excel and csv files.</p>
+    
+    <input onclick="LoadData()" type="button" class="btn btn-primary" value="Load Data" />
 </div>
 <script>function LoadData()
     {

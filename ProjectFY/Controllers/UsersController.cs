@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,14 @@ namespace ProjectFY.Controllers
     public class UsersController : Controller
     {
         private readonly JIECContext _context;
+      
 
         public UsersController(JIECContext context)
         {
             _context = context;
+         
+
+
         }
 
         // GET: Users
@@ -47,6 +52,7 @@ namespace ProjectFY.Controllers
         {
             return View();
         }
+        
 
         // POST: Users/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -57,8 +63,11 @@ namespace ProjectFY.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
-                await _context.SaveChangesAsync();
+                if (!this._context.User.Any(c=>c.UserEmail==user.UserEmail))
+                {
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(user);

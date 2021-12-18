@@ -962,12 +962,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Selenium.Chrome.WebDriver/85.0.0": {
-        "type": "package",
-        "build": {
-          "build/Selenium.Chrome.WebDriver.targets": {}
-        }
-      },
       "Selenium.Support/4.0.0-alpha01": {
         "type": "package",
         "dependencies": {
@@ -980,16 +974,22 @@
           "lib/netstandard2.0/WebDriver.Support.dll": {}
         }
       },
-      "Selenium.WebDriver/4.0.0-alpha01": {
+      "Selenium.WebDriver/4.0.1": {
         "type": "package",
         "dependencies": {
-          "Newtonsoft.Json": "10.0.3"
+          "Newtonsoft.Json": "12.0.3"
         },
         "compile": {
-          "lib/netstandard2.0/WebDriver.dll": {}
+          "lib/net5.0/WebDriver.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/WebDriver.dll": {}
+          "lib/net5.0/WebDriver.dll": {}
+        }
+      },
+      "Selenium.WebDriver.ChromeDriver/96.0.4664.4500": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.ChromeDriver.targets": {}
         }
       },
       "Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/19.1.0.63": {
@@ -3856,19 +3856,6 @@
         "runtime.native.system.nuspec"
       ]
     },
-    "Selenium.Chrome.WebDriver/85.0.0": {
-      "sha512": "wRg7it2bBMyYtOsarTy0bWtS2fCZI08KGTef2kH381DYpGP+wX8j6f/7ABv1nmrUj5CCVmTeDeYeXS5g00JXSw==",
-      "type": "package",
-      "path": "selenium.chrome.webdriver/85.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/Selenium.Chrome.WebDriver.targets",
-        "driver/chromedriver.exe",
-        "selenium.chrome.webdriver.85.0.0.nupkg.sha512",
-        "selenium.chrome.webdriver.nuspec"
-      ]
-    },
     "Selenium.Support/4.0.0-alpha01": {
       "sha512": "3WdC8BvNPnAVC4lq6+/rf2VK+T/bRN2oq7LB0cNqPEEUL6toABBlBpJ8XU4O21NIjRiQRKvByRIAeHUU20U79Q==",
       "type": "package",
@@ -3886,23 +3873,41 @@
         "selenium.support.nuspec"
       ]
     },
-    "Selenium.WebDriver/4.0.0-alpha01": {
-      "sha512": "jv6xU5paNsVFbM60NQkkHkOTxSjlmvQY+I0BCew6cJaKAeeDkVT44l3huSv7Qs1cRWM67mMIn/z+eQrBNZ4jxA==",
+    "Selenium.WebDriver/4.0.1": {
+      "sha512": "givS6L7wz4QupkyaNN7FwEl4trOHg1vfrSYmG0bGB3+QRPsDNcWUsbC70r6nB5JfbhNrKjZDPspAt0MYAB78Ig==",
       "type": "package",
-      "path": "selenium.webdriver/4.0.0-alpha01",
+      "path": "selenium.webdriver/4.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "images/icon.png",
         "lib/net45/WebDriver.dll",
-        "lib/net45/WebDriver.xml",
         "lib/net46/WebDriver.dll",
-        "lib/net46/WebDriver.xml",
         "lib/net47/WebDriver.dll",
-        "lib/net47/WebDriver.xml",
+        "lib/net48/WebDriver.dll",
+        "lib/net5.0/WebDriver.dll",
         "lib/netstandard2.0/WebDriver.dll",
-        "lib/netstandard2.0/WebDriver.xml",
-        "selenium.webdriver.4.0.0-alpha01.nupkg.sha512",
+        "lib/netstandard2.1/WebDriver.dll",
+        "selenium.webdriver.4.0.1.nupkg.sha512",
         "selenium.webdriver.nuspec"
+      ]
+    },
+    "Selenium.WebDriver.ChromeDriver/96.0.4664.4500": {
+      "sha512": "7bH+2/bX4IqPXxnMsbD820pCb1DFLeESIbjpUL/Zgq5wfKJHTxtknrQ1wnlMJmWtbpoNcj6Zck7OfoIVstl3zQ==",
+      "type": "package",
+      "path": "selenium.webdriver.chromedriver/96.0.4664.4500",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/DefinePropertiesChromeDriver.targets",
+        "build/Selenium.WebDriver.ChromeDriver.targets",
+        "driver/linux64/chromedriver",
+        "driver/mac64/chromedriver",
+        "driver/win32/chromedriver.exe",
+        "nupkg-icon.png",
+        "selenium.webdriver.chromedriver.96.0.4664.4500.nupkg.sha512",
+        "selenium.webdriver.chromedriver.nuspec"
       ]
     },
     "Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows/19.1.0.63": {
@@ -7663,9 +7668,9 @@
       "Microsoft.Extensions.Logging.Debug >= 5.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "Newtonsoft.Json >= 13.0.1",
-      "Selenium.Chrome.WebDriver >= 85.0.0",
       "Selenium.Support >= 4.0.0-alpha01",
-      "Selenium.WebDriver >= 4.0.0-alpha01",
+      "Selenium.WebDriver >= 4.0.1",
+      "Selenium.WebDriver.ChromeDriver >= 96.0.4664.4500",
       "Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows >= 19.1.0.63",
       "Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core >= 19.1.0.63"
     ]
@@ -7749,17 +7754,17 @@
             "target": "Package",
             "version": "[13.0.1, )"
           },
-          "Selenium.Chrome.WebDriver": {
-            "target": "Package",
-            "version": "[85.0.0, )"
-          },
           "Selenium.Support": {
             "target": "Package",
             "version": "[4.0.0-alpha01, )"
           },
           "Selenium.WebDriver": {
             "target": "Package",
-            "version": "[4.0.0-alpha01, )"
+            "version": "[4.0.1, )"
+          },
+          "Selenium.WebDriver.ChromeDriver": {
+            "target": "Package",
+            "version": "[96.0.4664.4500, )"
           },
           "Syncfusion.HtmlToPdfConverter.Blink.Net.Core.Windows": {
             "target": "Package",
